@@ -2,13 +2,13 @@
 # on a onUserIsOnline() method call, an AQMP message will be sent to the user-presence exchange.
 # The body will be in the JSON format { “user” : “amadeus” } and
 # the message will contain a necessary JSON content-type header.
-
+# see https://github.com/spring-cloud-samples/spring-cloud-contract-samples/blob/2.3.x/producer_yaml/src/test/resources/contracts/beer/messaging/shouldSendAcceptedVerification.yml
 label: user-goes-online
 input:
-  triggeredBy: onUserIsOnline()
+    triggeredBy: onUserIsOnline()
 outputMessage:
-  sentTo: user-presence
-  body:
-    user: amadeus
-  headers:
-    contentType: application/json
+    sentTo: user-presence
+    body:
+      user: amadeus
+    headers:
+        contentType: application/json
