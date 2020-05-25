@@ -1,14 +1,15 @@
 # Declare a contract where the message will be triggered by a method call.
-# on a onUserIsOnline() method call, an AQMP message will be sent to the user-presence exchange.
-# The body will be in the JSON format { “user” : “amadeus” } and
+# on a onUserIsOnline() method call, an AQMP message will be sent to the "user-presence-exchange" exchange.
+# The body will be in the JSON format { "user" : "joe", "id" : 987 } and
 # the message will contain a necessary JSON content-type header.
 # see https://github.com/spring-cloud-samples/spring-cloud-contract-samples/blob/2.3.x/producer_yaml/src/test/resources/contracts/beer/messaging/shouldSendAcceptedVerification.yml
 label: user-goes-online
 input:
     triggeredBy: onUserIsOnline()
 outputMessage:
-    sentTo: user-presence
+    sentTo: user-presence-exchange
     body:
-      user: amadeus
+      user: joe
+      id: 987
     headers:
         contentType: application/json

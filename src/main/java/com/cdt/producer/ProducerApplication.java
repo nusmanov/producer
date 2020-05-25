@@ -15,7 +15,7 @@ public class ProducerApplication {
   AmqpTemplate amqpTemplate;
 
   public void sendNotification() {
-    amqpTemplate.convertAndSend("user-presence", "", new Notification("amadeus"));
+    amqpTemplate.convertAndSend("user-presence-exchange", "", new Notification("joe", 987));
   }
 
   @Bean

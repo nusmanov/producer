@@ -13,6 +13,7 @@ public abstract class TestBase {
     @Autowired
     ProducerApplication application;
 
+    // trigger
     protected void onUserIsOnline() {
         application.sendNotification();
     }
