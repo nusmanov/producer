@@ -1,10 +1,19 @@
 # producer
 Spring Cloud Contract - Messaging / RabbitMQ - producer (producer driven)
 
-# Create RabbitMQ Stub Jar locally & Verify your API
-* Spring Cloud Contract Verifier generates also a JUnit test from your Base class, and runs against your Implementation:
-* https://github.com/nusmanov/producer/blob/master/src/test/java/com/cdt/producer/TestBase.java
+# Contract
+* The contract can be written also in Groovy, Spring RestDoc formats
+https://github.com/nusmanov/producer/blob/master/src/test/resources/contracts/user-presence.yaml
 
+# Verifier for your API
+* Spring Cloud Contract Verifier generates also a JUnit test from your Test-Base class and contract, and runs against your Implementation:
+* target/generated-test-sources/
+* https://github.com/nusmanov/producer/blob/master/src/test/java/com/cdt/producer/TestBase.java
+* Trigger Method for sending a message is defined in TestBase#onUserIsOnline()
+
+# Create RabbitMQ Stub Jar 
+* Create the RabbitMQ Stub Jar based on the contract
+* Verifies the API implementetion executing the generated JUnit test
 ```mvn clean install```
 
 # Create only the RabbitMQ Stub
